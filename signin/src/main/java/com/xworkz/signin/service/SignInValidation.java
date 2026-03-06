@@ -2,6 +2,7 @@ package com.xworkz.signin.service;
 
 import com.xworkz.signin.repository.Database;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,6 +19,9 @@ public class SignInValidation {
             return false; // username not found
         }
 
-        return dbPassword.equals(password);
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+        // 🔎 Compare encrypted password
+        return encoder.matches(password, dbPassword);
     }
 }

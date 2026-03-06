@@ -1,6 +1,8 @@
 package com.xworkz.signin.service;
 
 import com.xworkz.signin.dto.SignUpDto;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,14 +25,19 @@ public class SignUpValidation {
                 && username.length() >= 4
                 && password.equals(confirmPassword)) {
 
-            System.out.println("The entered data is valid");
+            // 🔐 Encrypt Password Here
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            String encryptedPassword = encoder.encode(password);
+
+            dto.setPassword(encryptedPassword); // set encrypted password
+            dto.setConfirmPassword(null); // optional: remove confirm password
+
+            System.out.println("Data valid and password encrypted");
             return true;
 
         } else {
-            System.out.println("The entered data is invalid");
+            System.out.println("Invalid data");
             return false;
         }
-
     }
-
 }
