@@ -1,0 +1,10 @@
+com\xworkz\aiproduct\configuration\WebInit.class
+com\xworkz\aiproduct\service\ProductService.class
+com\xworkz\aiproduct\dto\ProductDTO.class
+com\xworkz\aiproduct\service\AIService.class
+com\xworkz\aiproduct\entity\ProductEntity.class
+com\xworkz\aiproduct\configuration\WebConfiguration.class
+com\xworkz\aiproduct\controller\ProductController.class
+com\xworkz\aiproduct\repo\ProductDAOImpl.class
+com\xworkz\aiproduct\service\ProductServiceImpl.class
+com\xworkz\aiproduct\repo\ProductDAO.class
